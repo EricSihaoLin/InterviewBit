@@ -13,3 +13,4 @@ The classes should be self contained and includes a test main method for you to 
 * March 4th, 2017
 	* GAS
 	* INTERLEAVE
+	* PRIMESUM
