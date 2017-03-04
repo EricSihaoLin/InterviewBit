@@ -2,18 +2,18 @@ import java.util.*;
 import java.net.*;
 
 /**
-  * There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
-  *
-  * You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i
-  * to its next station (i+1). You begin the journey with an empty tank at one of the gas stations.
-  *
-  * Return the minimum starting gas station’s index if you can travel around the circuit once,
-  * otherwise return -1.
-  *
-  * You can only travel in one direction. i to i+1, i+2, ... n-1, 0, 1, 2..
-  * Completing the circuit means starting at i and ending up at i again.
-  *
-  **/
+	There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
+
+	You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i
+	to its next station (i+1). You begin the journey with an empty tank at one of the gas stations.
+
+	Return the minimum starting gas station’s index if you can travel around the circuit once,
+	otherwise return -1.
+
+	You can only travel in one direction. i to i+1, i+2, ... n-1, 0, 1, 2..
+	Completing the circuit means starting at i and ending up at i again.
+
+**/
 class Gas {
 	public static void main(String[] args) {
 		Gas s = new Gas();
@@ -40,9 +40,6 @@ class Gas {
 		//Check for all gas stations as starting point
 		for(int i = 0; i < gas.size(); i++)
 		{
-			System.out.println("========");
-			System.out.println("Running simulation starting at station: " + i);
-			System.out.println("========");
 			//Set up initial environment
 			int currentGas = 0;
 		    int startPos = i;
@@ -51,22 +48,18 @@ class Gas {
 		    {
 				//Get gas currently alloted
 				currentGas += gas.get(currentPos);
-				System.out.println("Filling up gas at station " + currentPos + " with " + gas.get(currentPos) + " units of gas. Total gas: " + currentGas);
 				//Check if it can make it to the next station
 				if(cost.get(currentPos) > currentGas)
 				{
 					//If it can't, break this loop
-					System.out.println("Cannot finish loop at station " + currentPos + ", requires " + cost.get(currentPos) + " but only has " + currentGas);
 					break;
 				}
 				//If it can make it to the next station, then keep going, deduct gas
-				System.out.println("Proceeding next station, needs " + cost.get(currentPos) + ", has " + currentGas);
 				currentGas -= cost.get(currentPos);
 				currentPos++;
 				//Check if it is out of bounds
 				if(currentPos == cost.size())
 				{
-					System.out.println("Out of bounds, resetting position to 0");
 					currentPos = 0;
 				}
 				if(startPos == currentPos)
