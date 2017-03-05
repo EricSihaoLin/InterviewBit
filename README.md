@@ -14,3 +14,4 @@ The classes should be self contained and includes a test main method for you to 
 	* GAS
 	* INTERLEAVE
 	* PRIMESUM
+	* BULBS
